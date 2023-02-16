@@ -15,7 +15,17 @@ import qrcode
 # make a copy the image so that
 # the original image does not get affected
 
-myBase='/Users/francescopeluso/Documents/FRANK/LAVORO/2023-BYS'
+from sys import platform
+if platform == "linux" or platform == "linux2":
+    # linux
+    myBase = '/Users/francescopeluso/Documents/FRANK/LAVORO/2023-BYS'
+elif platform == "darwin":
+    # OS X
+    myBase = '/Users/francescopeluso/Documents/FRANK/LAVORO/2023-BYS'
+elif platform == "win32":
+    # Windows...
+    myBase = 'C:'
+
 myPath=myBase+'/CATALOGO/'
 myPathImg=myBase+'/CATALOGO/IMMAGINI/'
 myPathImgQr=myBase+'/CATALOGO/QR/'
