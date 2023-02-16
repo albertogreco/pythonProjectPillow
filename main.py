@@ -11,11 +11,14 @@ from PIL import ImageFont, ImageDraw
 # Importing library
 import qrcode
 
+from sys import platform
 
 # make a copy the image so that
 # the original image does not get affected
 
-from sys import platform
+# imposto il valore iniziale
+myBase = '/Users/francescopeluso/Documents/FRANK/LAVORO/2023-BYS'
+
 if platform == "linux" or platform == "linux2":
     # linux
     myBase = '/Users/francescopeluso/Documents/FRANK/LAVORO/2023-BYS'
@@ -34,10 +37,13 @@ myPathData=myBase+'/CATALOGO/DATAFILE/'
 myPathBase=myBase+'/CATALOGO/BASE/'
 myFileName="file_py_test.txt"
 
-X=0 #contatore del numero di record nel datafile
+X=0   #contatore del numero di record nel datafile
 mNumGioie=12  #numero gioielli per pagina
 
+
 #function
+
+
 def my_functionQr(mCodart, mImageN):
     # Encoding data using make()
     qr = qrcode.QRCode(
@@ -55,6 +61,7 @@ def my_functionQr(mCodart, mImageN):
 
     # Saving as an image file
 
+
 with open(myPathData+myFileName) as file:
     for item in file:
         X=X+1
@@ -67,7 +74,7 @@ if (mPages-int(mPages)) >0:
 
 
 mPages=int(mPages)
-print("Catalogo di:",mPages," pagine")
+print("Catalogo di:", mPages, " pagine")
 #n = X+1
 n=X*mNumGioie
 #print("n=", n)
